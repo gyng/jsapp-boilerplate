@@ -1,10 +1,18 @@
 language: node_js
 node_js:
   - "8.4.0"
+cache: yarn
 addons:
   apt:
     packages:
       - xvfb
+      - libgtk2.0
+      - libxtst6
+      - libxss1
+      - libgconf2-4
+      - libnss3
+      - libasound2
+      - apt-transport-https
 before_script:
   - export DISPLAY=':99.0'
   - Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
