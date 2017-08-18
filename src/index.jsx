@@ -8,7 +8,7 @@ import { Provider } from "react-redux";
 import thunkMiddleware from "redux-thunk";
 
 import createHistory from "history/createBrowserHistory";
-import { Route } from "react-router";
+import { Route } from "react-router-dom";
 import {
   ConnectedRouter,
   routerReducer,
