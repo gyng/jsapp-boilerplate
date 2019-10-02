@@ -117,7 +117,7 @@
     "tslint-react": "^4.0.0",
     "typescript": "^3.6.2",
     "webpack": "^4.39.3",
-    "webpack-bundle-analyzer": "^3.4.1",
+    "webpack-bundle-analyzer": "^3.5.2",
     "webpack-cli": "^3.3.7",
     "webpack-serve": "^3.1.1",
     "webpack-shell-plugin": "^0.5.0"
