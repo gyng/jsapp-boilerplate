@@ -20,7 +20,7 @@ const mapDispatchToProps = (dispatch: RootDispatch) => ({
   onIncrementClickAsync: () => {
     dispatch(counterDuck.actions.incrementAsync(1, 1000));
   },
-  onIncrementClickAsyncPromise: async (url: string) => {
+  onIncrementClickAsyncPromise: (url: string) => {
     dispatch(counterDuck.actions.fetchCode(url)).then((res) => {
       if (counterDuck.actions.fetchCode.fulfilled.match(res)) {
         dispatch(counterDuck.actions.increment(res.payload));

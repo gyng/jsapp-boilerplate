@@ -1,6 +1,9 @@
 module.exports = {
   root: true,
   parser: "@typescript-eslint/parser",
+  parserOptions: {
+    project: "./tsconfig.json"
+  },
   plugins: ["@typescript-eslint", "jest", "jsx-a11y"],
   env: {
     browser: true,
@@ -10,6 +13,7 @@ module.exports = {
     "eslint:recommended",
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
     "plugin:jsx-a11y/recommended",

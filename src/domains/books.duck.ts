@@ -22,11 +22,11 @@ export const booksSlice = createSlice({
   reducers: {
     // Can pass adapter functions directly as case reducers.  Because we're passing this
     // as a value, `createSlice` will auto-generate the `bookAdded` action type / creator
-    bookAdded: booksAdapter.addOne,
+    bookAdded: booksAdapter.addOne.bind(this),
     booksReceived(state, action) {
       booksAdapter.setAll(state, action.payload);
     },
-    bookUpdated: booksAdapter.updateOne,
+    bookUpdated: booksAdapter.updateOne.bind(this),
   },
 });
 

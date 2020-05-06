@@ -15,7 +15,7 @@ export const actions = {
   })),
   fetchCode: createAsyncThunk("counter/fetchCode", async (url: string) => {
     const response = await fetch(url);
-    const status = await response.status;
+    const status = response.status;
     if (status < 400) {
       return status;
     } else {

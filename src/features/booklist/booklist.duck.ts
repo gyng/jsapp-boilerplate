@@ -36,7 +36,7 @@ const actions = {
     const response = await mockBookApi(url);
     const books = response.data;
 
-    const status = await response.status;
+    const status = response.status;
     if (status < 400) {
       return books;
     } else {
