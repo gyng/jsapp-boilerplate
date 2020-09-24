@@ -1,3 +1,5 @@
+// @ts-check
+
 const path = require("path");
 const webpack = require("webpack");
 const CircularDependencyPlugin = require("circular-dependency-plugin");
@@ -18,7 +20,8 @@ if (!process.env.HIDE_CONFIG) {
 const DEV = process.env.NODE_ENV === "development";
 const PROD = process.env.NODE_ENV === "production";
 
-module.exports = {
+/** @type { import('webpack').Configuration } */
+const config = {
   // Defaults to development, pass --mode production to override
   mode: "development",
 
@@ -144,6 +147,8 @@ module.exports = {
   // Switch to cheap-eval-source-map if build times are too long
   devtool: PROD ? false : "inline-source-map",
 
+  // @ts-expect-error webpack-dev-server checks this
+  // but is not defined in webpack.Configuration
   devServer: {
     allowedHosts: ["localhost"],
     clientLogLevel: "warning",
@@ -170,3 +175,5 @@ module.exports = {
     },
   },
 };
+
+module.exports = config;
