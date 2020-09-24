@@ -25,7 +25,7 @@ require("./legacy.css");
 export type IBoxProps = React.HTMLAttributes<HTMLDivElement>;
 
 // Example inline functional React component
-const Box: React.SFC<IBoxProps> = (props) => (
+const Box: React.FunctionComponent<IBoxProps> = (props) => (
   <div className={styles.box} {...props}>
     {props.children}
   </div>

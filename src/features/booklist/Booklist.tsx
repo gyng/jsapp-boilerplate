@@ -8,7 +8,7 @@ export interface BooklistProps {
   handleFetchBooks: (url: any) => any;
 }
 
-export const Booklist: React.SFC<BooklistProps> = (props) => {
+export const Booklist: React.FunctionComponent<BooklistProps> = (props) => {
   return (
     <div>
       {props.loading ? (
