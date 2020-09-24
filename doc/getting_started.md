@@ -68,6 +68,6 @@
 
 13. Prepare a build for deployment by running `yarn build:prod`. The output files will be located in `dist/`.
 
-14. Deployment to GitHub pages is done using the `gh-pages` package and can be run using `deploy:github`. This will create a production build with `APP_ENV` set to `github` and push it to the `gh-pages` branch of the repository on GitHub. Alternatively, there is a Github Actions workflow that does this for you.
+14. Deployment to GitHub pages is done using Github Actions. Details in `.github/workflows`.
 
 15. Consult [doc: addons](./addons.md) for things you might want to add.
