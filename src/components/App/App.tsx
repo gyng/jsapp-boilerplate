@@ -1,6 +1,6 @@
 import * as React from "react";
+import { Helmet } from "react-helmet";
 import { Link, Route, Switch } from "react-router-dom";
-
 import { Echo } from "@src/components/Echo";
 import { ErrorPage } from "@src/components/ErrorPage";
 import { Routes } from "@src/routes";
@@ -35,6 +35,10 @@ export class App extends React.Component {
   public render(): React.ReactNode {
     const appPage = ( // Example usage of legacy CSS class name mixed with CSS modules
       <div className={`app ${styles.grid}`}>
+        <Helmet>
+          <title>Per-component title set using react-helmet</title>
+        </Helmet>
+
         <div className={styles.row}>
           <h1 className={styles.title}>jsapp-boilerplate</h1>
           <div>

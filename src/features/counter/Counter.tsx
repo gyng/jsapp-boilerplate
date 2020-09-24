@@ -1,5 +1,6 @@
 import classNames from "classnames";
 import * as React from "react";
+import { Helmet } from "react-helmet";
 
 const styles = require("./counter.pcss");
 
@@ -18,6 +19,10 @@ export class Counter extends React.Component<CounterProps> {
   public render(): React.ReactNode {
     return (
       <div className={styles.container}>
+        <Helmet>
+          <title>Counter example</title>
+        </Helmet>
+
         <div className={classNames(styles.value, "value")}>
           {this.props.value}
         </div>
