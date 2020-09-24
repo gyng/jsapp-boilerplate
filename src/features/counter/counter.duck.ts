@@ -24,7 +24,9 @@ export const actions = {
   }),
   // This is a *CUSTOM* async action that does *not* return a Promise
   // ie. this action is not thenable (cannot be chained).
-  incrementAsync: (value = 1, delay = 1000) => (dispatch: RootDispatch) => {
+  incrementAsync: (value = 1, delay = 1000) => (
+    dispatch: RootDispatch
+  ): any => {
     setTimeout(() => {
       dispatch(actions.increment(value));
     }, delay);

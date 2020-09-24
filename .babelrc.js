@@ -7,7 +7,7 @@ module.exports = (api) => {
     "@babel/plugin-syntax-dynamic-import",
     "@babel/plugin-proposal-class-properties",
     "@babel/proposal-object-rest-spread",
-    ...(DEV ? ["react-refresh/babel"] : [])
+    ...(DEV ? ["react-refresh/babel"] : []),
   ];
 
   return { presets, plugins };

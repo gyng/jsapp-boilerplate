@@ -14,13 +14,13 @@ export interface ErrorPageProps {
 //
 // The above only applies to browser history type. When using hash history,
 // the Link component will handle the routing back to the index.
-export class ErrorPage extends React.Component<ErrorPageProps, {}> {
+export class ErrorPage extends React.Component<ErrorPageProps> {
   public static defaultProps: Partial<ErrorPageProps> = {
     code: "?",
     message: "An error has occurred.",
   };
 
-  public render() {
+  public render(): React.ReactNode {
     return (
       <div
         style={{

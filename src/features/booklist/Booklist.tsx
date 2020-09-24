@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import { Book } from "@src/domains/books.duck";
 
 export interface BooklistProps {

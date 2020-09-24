@@ -67,7 +67,8 @@ const start = (config: Configuration) => {
   );
 };
 
-// @ts-ignore
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore __WEBPACKDEFINE_APP_CONFIG_PATH__ injected by webpack
 loadConfig(__WEBPACKDEFINE_APP_CONFIG_PATH__)
   .then((config) => {
     start(config);

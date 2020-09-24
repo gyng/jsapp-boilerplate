@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/camelcase */
 // @ts-check
 
 // This dummy config is used for three purposes:

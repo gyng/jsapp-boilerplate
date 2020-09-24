@@ -1,4 +1,7 @@
 module.exports = {
+  globals: {
+    __WEBPACKDEFINE_APP_CONFIG_PATH__: "/config.json",
+  },
   moduleFileExtensions: ["js", "ts", "tsx"],
   moduleNameMapper: {
     "@cfg": "<rootDir>/config",

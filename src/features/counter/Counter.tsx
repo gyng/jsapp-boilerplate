@@ -12,10 +12,10 @@ export interface CounterProps {
   value?: number;
 }
 
-export class Counter extends React.Component<CounterProps, {}> {
+export class Counter extends React.Component<CounterProps> {
   public static defaultProps: Partial<CounterProps> = { value: 0 };
 
-  public render() {
+  public render(): React.ReactNode {
     return (
       <div className={styles.container}>
         <div className={classNames(styles.value, "value")}>

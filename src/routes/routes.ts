@@ -1,4 +1,4 @@
-export const Routes = {
+export const Routes: Record<string, () => string> = {
   booklist: () => "/booklist",
   counter: () => "/counter",
   // Example of using parameters

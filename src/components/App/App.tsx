@@ -29,8 +29,8 @@ const Box: React.SFC<IBoxProps> = (props) => (
   </div>
 );
 
-export class App extends React.Component<{}, {}> {
-  public render() {
+export class App extends React.Component {
+  public render(): React.ReactNode {
     const appPage = ( // Example usage of legacy CSS class name mixed with CSS modules
       <div className={`app ${styles.grid}`}>
         <div className={styles.row}>

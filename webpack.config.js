@@ -88,7 +88,6 @@ module.exports = {
         buildConfig.url_configPath
       ),
     }),
-    new webpack.NamedModulesPlugin(),
     new CircularDependencyPlugin({
       allowAsyncCycles: false,
       cwd: process.cwd(),
