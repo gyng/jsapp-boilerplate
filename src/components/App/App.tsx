@@ -13,6 +13,8 @@ const hello = require("./hello.jpg").default;
 const styles = require("./app.pcss");
 
 // Include global CSS and variables once
+require("@src/styles/variables.pcss");
+require("@src/styles/typography.pcss");
 require("@src/styles/root.pcss");
 
 // Legacy CSS is supported
