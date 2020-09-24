@@ -65,7 +65,18 @@ module.exports = {
         ],
       },
       {
-        test: /\.(jpg|jpeg|png|gif|mp4|webm|mp3|ogg|svg)$/,
+        test: /\.icon-svg$/,
+        loader: "@svgr/webpack",
+        options: {
+          icon: true,
+        },
+      },
+      {
+        test: /\.svg$/,
+        loader: "@svgr/webpack",
+      },
+      {
+        test: /\.(jpg|jpeg|png|gif|mp4|webm|mp3|ogg|\.rawsvg)$/,
         loader: "file-loader",
         options: {
           name: "./f/[hash:16].[ext]",

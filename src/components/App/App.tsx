@@ -4,6 +4,7 @@ import { Link, Route, Switch } from "react-router-dom";
 import { Echo } from "@src/components/Echo";
 import { ErrorPage } from "@src/components/ErrorPage";
 import { Routes } from "@src/routes";
+import { SvgExample } from "@src/components/SvgExample";
 import { CounterContainer } from "@src/features/counter/Counter.container";
 import { BooklistContainer } from "@src/features/booklist/Booklist.container";
 import { AppConfigContext } from "@src/index";
@@ -89,6 +90,7 @@ export class App extends React.Component {
             }}
           >
             This div is themed using PostCSS and React&apos;s style prop
+            <SvgExample />
           </div>
         </Box>
 

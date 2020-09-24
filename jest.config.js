@@ -8,6 +8,8 @@ module.exports = {
     "@cfg/(.*)": "<rootDir>/config/$1",
     "@src/(.*)": "<rootDir>/src/$1",
     "@test/(.*)": "<rootDir>/test/$1",
+    "\\.icon-svg": "<rootDir>/test/helpers/svgrMock.js",
+    "\\.svg": "<rootDir>/test/helpers/svgrMock.js",
   },
   setupFilesAfterEnv: ["<rootDir>/test/helpers/index.ts"],
   testMatch: ["**/src/**/*.test.(ts|tsx|js)", "**/src/test/*.test.(ts|tsx|js)"],
