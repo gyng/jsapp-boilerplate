@@ -77,3 +77,41 @@ I have not found a nice solution to this problem. Creating something like create
     git remote add upstream git@github.com:gyng/jsapp-boilerplate.git
     git fetch
     git cherry-pick $START_COMMIT~1..$END_COMMIT
+
+### Configure
+
+There are two configuration files.
+
+* Buildtime configuration (used by webpack)
+* Runtime configuration (used by the app)
+
+#### Buildtime
+
+The buildtime configuration is type-checked. The schema is defined in `config/index.d.ts`.
+
+When building, the config files can be controlled using environment variables. For example, `yarn config:generate:dev` in `package.json` uses the following
+
+* `BUILD_CONFIG_FILE=./config/configValues.js` (default)
+* `CONFIG_FILE=./configValues.js` (default)
+
+which `config/generateJson.js` uses to write to `dist/config/config.json`.
+
+Note: Config building is separate from application building, so your configuration file can be generated independently of the build process.
+
+#### Runtime
+
+The runtime configuration is type-checked. The schema is defined in `config/index.d.ts`.
+
+The app will load the config from the hardcoded location `config/config.js` defined in `src/index.tsx`. This can be changed to suit your needs. In the dev environment, values from `config/configValues.js` are used to generate a config file on first build.
+
+In the app, the configuration can be accessed from the React context `AppConfigContext`.
+
+```tsx
+import { AppConfigContext } from "@src/index";
+
+const renderConfig = () => (
+  <AppConfigContext.Consumer>
+    {(config) => <pre>My config: {JSON.stringify(config)}</pre>}
+  </AppConfigContext.Consumer>
+);
+```
