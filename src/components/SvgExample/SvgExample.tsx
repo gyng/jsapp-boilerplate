@@ -8,7 +8,7 @@ export const SvgExample: React.FunctionComponent = (): JSX.Element => {
     <div>
       SVG examples
       <p>
-        Icons are <ClockIcon /> used for inline SVGs, and have .icon.svg
+        Icons are <ClockIcon /> used for inline SVGs, and have .icon-svg
         extensions
       </p>
       <p>

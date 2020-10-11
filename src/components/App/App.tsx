@@ -87,6 +87,7 @@ export class App extends React.Component {
             className={styles.themedDiv}
             style={{
               border: "solid 1px grey",
+              padding: "var(--m-m)",
             }}
           >
             This div is themed using PostCSS and React&apos;s style prop
