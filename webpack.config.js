@@ -45,14 +45,14 @@ const config = {
       {
         test: /\.css$/,
         include: path.resolve(__dirname, "src"),
-        loaders: ["style-loader", "css-loader"],
+        use: [{ loader: "style-loader" }, { loader: "css-loader" }],
       },
       // PostCSS
       {
         test: /\.(p|s)css$/,
         include: path.resolve(__dirname, "src"),
-        loaders: [
-          "style-loader",
+        use: [
+          { loader: "style-loader" },
           {
             loader: "css-loader",
             options: {
@@ -69,29 +69,32 @@ const config = {
       },
       {
         test: /\.icon-svg$/,
-        loader: "@svgr/webpack",
-        options: {
-          icon: true,
-        },
+        use: [{ loader: "@svgr/webpack", options: { icon: true } }],
       },
       {
         test: /\.svg$/,
-        loader: "@svgr/webpack",
+        use: [{ loader: "@svgr/webpack" }],
       },
       {
         test: /\.(jpg|jpeg|png|gif|mp4|webm|mp3|ogg|\.rawsvg)$/,
-        loader: "file-loader",
-        options: {
-          name: "./f/[hash:16].[ext]",
-        },
+        use: [
+          {
+            loader: "file-loader",
+            options: { name: "./f/[hash:16].[ext]" },
+          },
+        ],
       },
       {
         test: /\.(j|t)sx?$/,
         exclude: /\/node_modules\//,
-        loader: "babel-loader",
-        options: {
-          cacheDirectory: true,
-        },
+        use: [
+          {
+            loader: "babel-loader",
+            options: {
+              cacheDirectory: true,
+            },
+          },
+        ],
       },
     ],
   },
@@ -105,7 +108,7 @@ const config = {
     new CircularDependencyPlugin({
       allowAsyncCycles: false,
       cwd: process.cwd(),
-      exclude: /node_modules/,
+      exclude: /node_modules|\.css|\.pcss$|\.html$/,
       failOnError: true,
     }),
     new HtmlWebpackPlugin({
