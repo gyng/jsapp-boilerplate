@@ -34,7 +34,7 @@ const config = {
   },
 
   output: {
-    filename: "[name].[hash:7].js",
+    filename: "[name].[fullhash:7].js",
     path: path.resolve(__dirname, "dist"),
     publicPath: buildConfig.url_publicPath,
   },
