@@ -2,6 +2,8 @@
 
 A personal JavaScript boilerplate for frontend applications for near-production use. Production deployment will require additional work depending on where and how you plan to deploy your application as this boilerplate only provides deployment to GitHub pages.
 
+This repository is set up as a monorepo using yarn workspaces, but you can disregard that if that's not required and use it as a non-monorepo.
+
 This boilerplate contains:
 
 | **Presentation, state**                                                     |                              |

@@ -1,0 +1,10 @@
+{
+  "private": true,
+  "name": "@org/ui",
+  "version": "1.0.0",
+  "description": "My organisation's UI library",
+  "main": "index.js",
+  "repository": "git@github.com:gyng/jsapp-boilerplate.git",
+  "author": "Ng Guoyou <gyng@users.noreply.github.com>",
+  "license": "MIT"
+}

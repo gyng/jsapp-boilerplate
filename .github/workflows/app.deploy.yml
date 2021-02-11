@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: App - Deploy to GitHub Pages
 
 on:
   push:
@@ -11,10 +11,16 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: List workspace
+
       - name: Test
-        run: docker build . --file Dockerfile.test.dockerfile
+        run: |
+          cd packages/app && pwd && ls -la
+          docker build . --file Dockerfile.test.dockerfile
       - name: Build
-        run: yarn install && yarn build:github && yarn config:generate:github
+        run: |
+          cd packages/app && pwd && ls -la
+          yarn install && yarn build:github && yarn config:generate:github
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:

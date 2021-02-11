@@ -2,7 +2,8 @@ version: '3'
 services:
   app:
     build:
-      context: .
+      context: ../..
+      dockerfile: packages/app/Dockerfile
       args:
         NODE_ENV: production
     restart: always

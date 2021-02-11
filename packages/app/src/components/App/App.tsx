@@ -10,6 +10,7 @@ import { BooklistContainer } from "@src/features/booklist/Booklist.container";
 import { AppConfigContext } from "@src/index";
 
 // Let webpack instead of ts handle these imports
+const { ExampleText } = require("@org/ui");
 const hello = require("./hello.jpg").default;
 const styles = require("./app.pcss");
 
@@ -81,7 +82,7 @@ export const App: React.FC = () => {
       </Box>
 
       {/* Example DOM for nested CSS */}
-      <Box>
+      <Box style={{ flexDirection: "column" }}>
         <div
           className={styles.themedDiv}
           style={{
@@ -92,6 +93,8 @@ export const App: React.FC = () => {
           This div is themed using PostCSS and React&apos;s style prop
           <SvgExample />
         </div>
+
+        <div>Import from local package: {ExampleText}</div>
       </Box>
 
       <Box>
