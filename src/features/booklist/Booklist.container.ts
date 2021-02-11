@@ -1,8 +1,8 @@
 import { connect } from "react-redux";
-import { Booklist } from "./Booklist";
-import { booklistDuck } from "./booklist.duck";
 import { RootDispatch, RootState } from "@src/types";
 import { booksAdapter, Book, booksSlice } from "@src/domains/books.duck";
+import { Booklist } from "./Booklist";
+import { booklistDuck } from "./booklist.duck";
 
 const mapStateToProps = (state: RootState) => ({
   error: state.features.booklist.error,
@@ -28,9 +28,11 @@ const mapDispatchToProps = (dispatch: RootDispatch) => ({
         )
       );
     } else if (res.payload) {
-      console.log("application error" + JSON.stringify(res));
+      // eslint-disable-next-line no-console
+      console.log(`application error${JSON.stringify(res)}`);
     } else {
-      console.log("network error " + res.error.message);
+      // eslint-disable-next-line no-console
+      console.log(`network error ${res.error.message}`);
     }
   },
 });

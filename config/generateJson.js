@@ -1,3 +1,6 @@
+/* eslint-env node */
+/* eslint-disable no-console, global-require */
+
 // This generates a config JSON, mostly for development work. Using it from the
 // CLI will read config values from `configValues.js`.
 //
@@ -13,6 +16,7 @@ const generate = (config) => JSON.stringify(config, null, 2);
 
 if (require.main === module) {
   const configFile = process.env.CONFIG_FILE || "./configValues";
+  // eslint-disable-next-line import/no-dynamic-require
   const { appConfig } = require(configFile);
 
   const path = process.argv[2];

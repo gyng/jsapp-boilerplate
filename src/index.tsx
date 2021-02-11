@@ -10,11 +10,11 @@ import {
   BrowserRouter,
   HashRouter,
 } from "react-router-dom";
-import { ErrorPage } from "./components/ErrorPage";
 import { Configuration } from "@cfg/index.d";
 import { store } from "@src/types";
 import { Routes } from "@src/routes";
 import { loadConfig } from "@src/util/configLoader";
+import { ErrorPage } from "./components/ErrorPage";
 
 // Dynamically import App for code splitting, remove this if unwanted
 const App = React.lazy(() => import("@src/components/App"));
@@ -44,6 +44,7 @@ const SuspenseApp = () => (
 );
 
 const start = (config: Configuration) => {
+  // eslint-disable-next-line no-underscore-dangle, @typescript-eslint/naming-convention
   const _store = store;
 
   const routerConfig = configureRouter(config);
@@ -74,6 +75,7 @@ loadConfig(__WEBPACKDEFINE_APP_CONFIG_PATH__)
     start(config);
   })
   .catch((error) => {
+    // eslint-disable-next-line no-console
     console.error("Failed to load config file.", error);
     ReactDOM.render(<ErrorPage code="500" />, document.getElementById("root"));
   });

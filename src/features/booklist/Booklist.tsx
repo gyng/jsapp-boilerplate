@@ -15,6 +15,7 @@ export const Booklist: React.FunctionComponent<BooklistProps> = (props) => {
         "Loading"
       ) : (
         <button
+          type="submit"
           onClick={() => {
             props.handleFetchBooks("");
           }}

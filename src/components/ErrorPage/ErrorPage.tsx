@@ -14,34 +14,29 @@ export interface ErrorPageProps {
 //
 // The above only applies to browser history type. When using hash history,
 // the Link component will handle the routing back to the index.
-export class ErrorPage extends React.Component<ErrorPageProps> {
-  public static defaultProps: Partial<ErrorPageProps> = {
-    code: "?",
-    message: "An error has occurred.",
-  };
+export const ErrorPage: React.FC<ErrorPageProps> = (props) => {
+  const { code = "?", message = "An error has occurred." } = props;
 
-  public render(): React.ReactNode {
-    return (
-      <div
-        style={{
-          alignItems: "center",
-          display: "flex",
-          flexDirection: "column",
-          height: "100%",
-          justifyContent: "center",
-          width: "100vw",
-        }}
-      >
-        <div style={{ fontSize: "25vh" }}>🔥</div>
-        <h1>{this.props.code}</h1>
-        <strong>{this.props.message}</strong>
-        <p style={{ textAlign: "center" }}>
-          Change me in <code>components/ErrorPage/ErrorPage.tsx</code>. <br />
-          The 404 route is defined in <code>index.tsx</code>.
-        </p>
+  return (
+    <div
+      style={{
+        alignItems: "center",
+        display: "flex",
+        flexDirection: "column",
+        height: "100%",
+        justifyContent: "center",
+        width: "100vw",
+      }}
+    >
+      <div style={{ fontSize: "25vh" }}>🔥</div>
+      <h1>{code}</h1>
+      <strong>{message}</strong>
+      <p style={{ textAlign: "center" }}>
+        Change me in <code>components/ErrorPage/ErrorPage.tsx</code>. <br />
+        The 404 route is defined in <code>index.tsx</code>.
+      </p>
 
-        <Link to={Routes.root()}>Back to index</Link>
-      </div>
-    );
-  }
-}
+      <Link to={Routes.root()}>Back to index</Link>
+    </div>
+  );
+};

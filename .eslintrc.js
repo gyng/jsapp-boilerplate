@@ -1,49 +1,46 @@
 module.exports = {
   root: true,
+  extends: [
+    "airbnb-typescript",
+    "plugin:prettier/recommended",
+    "prettier/react",
+    "prettier/@typescript-eslint",
+  ],
+  plugins: ["jest"],
   parser: "@typescript-eslint/parser",
-  plugins: ["@typescript-eslint", "jest", "jsx-a11y"],
   env: {
     browser: true,
     node: true,
   },
-  extends: [
-    "eslint:recommended",
-    "plugin:@typescript-eslint/eslint-recommended",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:react/recommended",
-    "plugin:react-hooks/recommended",
-    "plugin:jsx-a11y/recommended",
-    "plugin:jest/recommended",
-    "plugin:import/errors",
-    "plugin:import/warnings",
-    "plugin:import/typescript",
-    "plugin:prettier/recommended",
-  ],
   rules: {
-    // PostCSS requires require
-    "@typescript-eslint/no-var-requires": 0,
-    // Libraries sometimes have bad typings
-    "@typescript-eslint/ban-ts-ignore": 0,
-    // Sometimes, it really is any
-    "@typescript-eslint/no-explicit-any": 0,
-    // Library code return types can change
-    "@typescript-eslint/explicit-function-return-type": 0,
     // Prefer build-time TS typechecking
     "react/prop-types": 0,
+    // Prefer Typescript checks
+    "react/require-default-props": 0,
     // Emoji aren't too bad?
     "jsx-a11y/accessible-emoji": 0,
-    // Used in Redux reducers a lot
-    "no-case-declarations": 0,
-    // Ignore unused variables with leading underscore
+    // Ignore unused variables with leading underscore, useful for documentation
     "no-unused-vars": ["error", { argsIgnorePattern: "^_" }],
     "@typescript-eslint/no-unused-vars": ["error", { argsIgnorePattern: "^_" }],
-    // Force import ordering
-    "import/order": 1,
+    // Default exports integrate poorly with TS tooling
+    "import/prefer-default-export": 0,
+    // Sometimes it's more readable with props.xxx
+    "react/destructuring-assignment": 0,
+    // Useful for library development
+    "react/jsx-props-no-spreading": [
+      2,
+      {
+        html: "ignore",
+      },
+    ],
   },
   settings: {
     "import/resolver": "webpack",
     react: {
       version: "detect",
     },
+  },
+  parserOptions: {
+    project: "./tsconfig.eslint.json",
   },
 };

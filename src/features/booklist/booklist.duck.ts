@@ -13,12 +13,12 @@ const mockBookApi = (_url: string): Promise<{ status: number; data: Book[] }> =>
     });
     const fakebooks = [];
     const times = Math.ceil(Math.random() * 9) + 1;
-    for (let i = 0; i < times; i++) {
+    for (let i = 0; i < times; i += 1) {
       fakebooks.push(makeBook());
     }
 
     if (Math.random() < 0.1) {
-      reject("Mock failure");
+      reject(new Error("Mock failure"));
     }
 
     resolve({
@@ -39,9 +39,8 @@ const actions = {
     const status = await response.status;
     if (status < 400) {
       return books;
-    } else {
-      throw status;
     }
+    throw new Error(status.toString());
   }),
 };
 

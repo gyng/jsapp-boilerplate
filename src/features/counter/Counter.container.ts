@@ -1,8 +1,8 @@
 import { connect } from "react-redux";
 
+import { RootDispatch, RootState } from "@src/types";
 import { Counter } from "./Counter";
 import { counterDuck } from "./counter.duck";
-import { RootDispatch, RootState } from "@src/types";
 
 const mapStateToProps = (state: RootState) => ({
   // Direct access is acceptable for this, but counterDuck.selectors are recommended for type-safety
@@ -25,20 +25,24 @@ const mapDispatchToProps = (dispatch: RootDispatch) => ({
       if (counterDuck.actions.fetchCode.fulfilled.match(res)) {
         dispatch(counterDuck.actions.increment(res.payload));
       } else {
-        window.alert("network error " + res.error.message);
+        // eslint-disable-next-line no-alert
+        window.alert(`network error ${res.error.message}`);
       }
     });
   },
   onIncrementClickAsyncAwait: async (url: string) => {
     const res = await dispatch(counterDuck.actions.fetchCode(url));
+    // eslint-disable-next-line no-console
     console.log(res);
 
     if (counterDuck.actions.fetchCode.fulfilled.match(res)) {
       dispatch(counterDuck.actions.increment(res.payload));
     } else if (res.payload) {
-      window.alert("application error" + JSON.stringify(res));
+      // eslint-disable-next-line no-alert
+      window.alert(`application error${JSON.stringify(res)}`);
     } else {
-      window.alert("network error " + res.error.message);
+      // eslint-disable-next-line no-alert
+      window.alert(`network error ${res.error.message}`);
     }
   },
 });

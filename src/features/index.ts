@@ -1,3 +1,5 @@
+/* eslint-disable import/no-cycle */
+
 import { booklistDuck } from "./booklist/booklist.duck";
 import { counterDuck } from "./counter/counter.duck";
 

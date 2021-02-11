@@ -32,122 +32,120 @@ const Box: React.FunctionComponent<IBoxProps> = (props) => (
   </div>
 );
 
-export class App extends React.Component {
-  public render(): React.ReactNode {
-    const appPage = ( // Example usage of legacy CSS class name mixed with CSS modules
-      <div className={`app ${styles.grid}`}>
-        <Helmet>
-          <title>Per-component title set using react-helmet</title>
-        </Helmet>
+export const App: React.FC = () => {
+  const appPage = ( // Example usage of legacy CSS class name mixed with CSS modules
+    <div className={`app ${styles.grid}`}>
+      <Helmet>
+        <title>Per-component title set using react-helmet</title>
+      </Helmet>
 
-        <div className={styles.row}>
-          <h1 className={styles.title}>jsapp-boilerplate</h1>
-          <div>
-            <a href="https://github.com/gyng/jsapp-boilerplate">GitHub</a>
-            &nbsp;&middot;&nbsp;
-            <span>
-              Find me in{" "}
-              <a href="https://github.com/gyng/jsapp-boilerplate/blob/master/src/components/App/App.tsx">
-                <code>src/components/App/App.tsx</code>
-              </a>
-            </span>
-          </div>
+      <div className={styles.row}>
+        <h1 className={styles.title}>jsapp-boilerplate</h1>
+        <div>
+          <a href="https://github.com/gyng/jsapp-boilerplate">GitHub</a>
+          &nbsp;&middot;&nbsp;
+          <span>
+            Find me in{" "}
+            <a href="https://github.com/gyng/jsapp-boilerplate/blob/master/src/components/App/App.tsx">
+              <code>src/components/App/App.tsx</code>
+            </a>
+          </span>
         </div>
-
-        {/* React style prop is still available */}
-        <Box
-          className={styles.box}
-          style={{ alignSelf: "flex-start", flexDirection: "column" }}
-        >
-          {/* Example usage of switch for routing */}
-          <Link to="./counter">
-            Link to /counter. Click to show counter. Back/Forward buttons and
-            page refresh work.
-          </Link>
-
-          <Link to="./booklist">
-            Link to /booklist. Click to show booklist example.
-          </Link>
-        </Box>
-
-        <Box>
-          <div>
-            {/* Styling with CSS modules */}
-            <img className={styles.robot} src={hello} alt="Cute robot?" />
-
-            {/* Using other components */}
-            <Echo text="Hello, world!" />
-            <Link to="/no-page-lives-here">Link to example error page</Link>
-          </div>
-        </Box>
-
-        {/* Example DOM for nested CSS */}
-        <Box>
-          <div
-            className={styles.themedDiv}
-            style={{
-              border: "solid 1px grey",
-              padding: "var(--m-m)",
-            }}
-          >
-            This div is themed using PostCSS and React&apos;s style prop
-            <SvgExample />
-          </div>
-        </Box>
-
-        <Box>
-          <div style={{ alignItems: "flex-start" }}>
-            <div style={{ marginBottom: "var(--m-m)" }}>
-              Current configuration
-            </div>
-            <AppConfigContext.Consumer>
-              {(config) => <pre>{JSON.stringify(config, null, 2)}</pre>}
-            </AppConfigContext.Consumer>
-            <p>
-              Configure in{" "}
-              <a href="https://github.com/gyng/jsapp-boilerplate/blob/master/config/configValues.js">
-                <code>config/configValues.js</code>
-              </a>
-            </p>
-          </div>
-        </Box>
       </div>
-    );
 
-    // This is your main App router
-    // Typically for more complex apps I create a Routes object in src/routes that looks something like
-    //
-    // `export const AppRoutes = { base: () => "/"", counters: (id) => `/counters/${id}` }`
-    //
-    // And then use it for linking `<Link to={AppRoutes.counters(123)}>Counter 123</Link>`
-    return (
-      <Switch>
-        {/* Quickstart for URL matches
+      {/* React style prop is still available */}
+      <Box
+        className={styles.box}
+        style={{ alignSelf: "flex-start", flexDirection: "column" }}
+      >
+        {/* Example usage of switch for routing */}
+        <Link to="./counter">
+          Link to /counter. Click to show counter. Back/Forward buttons and page
+          refresh work.
+        </Link>
 
-        // Define your Match props
-        export interface IFooMatch {
-          id: string;
-        }
+        <Link to="./booklist">
+          Link to /booklist. Click to show booklist example.
+        </Link>
+      </Box>
 
-        // Reference that type in RouteComponentProps when creating your component
-        export class Foo extends React.Component<
-          IFooProps & Partial<RouteComponentProps<IFooMatch>>
-        > { ... }
+      <Box>
+        <div>
+          {/* Styling with CSS modules */}
+          <img className={styles.robot} src={hello} alt="Cute robot?" />
 
-        // Then add this route into your router. :id will be passed to the Foo component.
-        <Route path="/counter/:id" component={CountersPage} />
+          {/* Using other components */}
+          <Echo text="Hello, world!" />
+          <Link to="/no-page-lives-here">Link to example error page</Link>
+        </div>
+      </Box>
 
-        // In medium-large applications you want to reuse route objects:
-        // in routes/appRoutes.ts a plain function to create a route is defined by us
-        <Route path={AppRoutes.counter(":id")} component={ErrorPage} /> */}
-        <Route exact path={Routes.root()} render={() => appPage} />
-        <Route path={Routes.counter()} component={CounterContainer} />
-        <Route path={Routes.booklist()} component={BooklistContainer} />
-        <Route
-          path="/"
-          render={() => <ErrorPage code="404" message="Page not found" />}
-        />
-      </Switch>
-    );
-  }
-}
+      {/* Example DOM for nested CSS */}
+      <Box>
+        <div
+          className={styles.themedDiv}
+          style={{
+            border: "solid 1px grey",
+            padding: "var(--m-m)",
+          }}
+        >
+          This div is themed using PostCSS and React&apos;s style prop
+          <SvgExample />
+        </div>
+      </Box>
+
+      <Box>
+        <div style={{ alignItems: "flex-start" }}>
+          <div style={{ marginBottom: "var(--m-m)" }}>
+            Current configuration
+          </div>
+          <AppConfigContext.Consumer>
+            {(config) => <pre>{JSON.stringify(config, null, 2)}</pre>}
+          </AppConfigContext.Consumer>
+          <p>
+            Configure in{" "}
+            <a href="https://github.com/gyng/jsapp-boilerplate/blob/master/config/configValues.js">
+              <code>config/configValues.js</code>
+            </a>
+          </p>
+        </div>
+      </Box>
+    </div>
+  );
+
+  // This is your main App router
+  // Typically for more complex apps I create a Routes object in src/routes that looks something like
+  //
+  // `export const AppRoutes = { base: () => "/"", counters: (id) => `/counters/${id}` }`
+  //
+  // And then use it for linking `<Link to={AppRoutes.counters(123)}>Counter 123</Link>`
+  return (
+    <Switch>
+      {/* Quickstart for URL matches
+
+      // Define your Match props
+      export interface IFooMatch {
+        id: string;
+      }
+
+      // Reference that type in RouteComponentProps when creating your component
+      export class Foo extends React.Component<
+        IFooProps & Partial<RouteComponentProps<IFooMatch>>
+      > { ... }
+
+      // Then add this route into your router. :id will be passed to the Foo component.
+      <Route path="/counter/:id" component={CountersPage} />
+
+      // In medium-large applications you want to reuse route objects:
+      // in routes/appRoutes.ts a plain function to create a route is defined by us
+      <Route path={AppRoutes.counter(":id")} component={ErrorPage} /> */}
+      <Route exact path={Routes.root()} render={() => appPage} />
+      <Route path={Routes.counter()} component={CounterContainer} />
+      <Route path={Routes.booklist()} component={BooklistContainer} />
+      <Route
+        path="/"
+        render={() => <ErrorPage code="404" message="Page not found" />}
+      />
+    </Switch>
+  );
+};

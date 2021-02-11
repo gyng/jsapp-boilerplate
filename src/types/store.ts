@@ -2,6 +2,7 @@ import { combineReducers } from "redux";
 import { configureStore } from "@reduxjs/toolkit";
 
 import { domainReducers } from "@src/domains";
+// eslint-disable-next-line import/no-cycle
 import { featureReducers } from "@src/features";
 
 const features = combineReducers(featureReducers);

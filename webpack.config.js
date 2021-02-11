@@ -1,8 +1,10 @@
 // @ts-check
+/* eslint-disable no-console */
 
+// https://github.com/benmosher/eslint-plugin-import/issues/1396#issuecomment-511007063
+// eslint-disable-next-line import/no-extraneous-dependencies
 const path = require("path");
 const webpack = require("webpack");
-const CircularDependencyPlugin = require("circular-dependency-plugin");
 const CompressionPlugin = require("compression-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const PreloadWebpackPlugin = require("preload-webpack-plugin");
@@ -11,6 +13,7 @@ const ShellOnBuildEndPlugin = require("./webpack-util/shell-on-build-end-webpack
 
 const buildConfigPath =
   process.env.BUILD_CONFIG_FILE || "./config/configValues";
+// eslint-disable-next-line import/no-dynamic-require
 const { buildConfig } = require(buildConfigPath);
 
 if (!process.env.HIDE_CONFIG) {
@@ -104,12 +107,6 @@ const config = {
       __WEBPACKDEFINE_APP_CONFIG_PATH__: JSON.stringify(
         buildConfig.url_configPath
       ),
-    }),
-    new CircularDependencyPlugin({
-      allowAsyncCycles: false,
-      cwd: process.cwd(),
-      exclude: /node_modules|\.css|\.pcss$|\.html$/,
-      failOnError: true,
     }),
     new HtmlWebpackPlugin({
       template: "./src/index.html",
