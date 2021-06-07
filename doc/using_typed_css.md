@@ -28,11 +28,4 @@ In a large team or project, you might want to add checking of your CSS modules. 
     *.pcss.d.ts
     ```
 
-4. Update CSS `requires` to `imports` to enable the typechecking
-
-    ```diff
-    - const styles = require("./counter.pcss");
-    + import styles from "./counter.pcss";
-    ```
-
-5. Generate the new definitions when needed with `yarn tcm:scss`. You can look into enabling watch mode for tcm, or add a webpack typed-css-modules loader to the build process.
+4. Generate the new definitions when needed with `yarn tcm:scss`. You can look into enabling watch mode for tcm, or add a webpack typed-css-modules loader to the build process.

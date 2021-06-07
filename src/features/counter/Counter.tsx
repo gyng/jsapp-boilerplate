@@ -2,7 +2,7 @@ import classNames from "classnames";
 import * as React from "react";
 import { Helmet } from "react-helmet";
 
-const styles = require("./counter.pcss");
+import styles from "./counter.pcss";
 
 export interface CounterProps {
   onDecrementClick: () => void;

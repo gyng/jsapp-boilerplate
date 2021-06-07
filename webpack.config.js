@@ -67,7 +67,7 @@ const config = {
               importLoaders: 1,
             },
           },
-          "postcss-loader",
+          { loader: "postcss-loader" },
         ],
       },
       {
@@ -125,6 +125,7 @@ const config = {
     }),
     // Generate .gz for production builds
     // Consider adding brotli-webpack-plugin if your server supports .br
+    // @ts-expect-error
     ...(PROD
       ? [
           new CompressionPlugin({
@@ -132,6 +133,7 @@ const config = {
           }),
         ]
       : []),
+    // @ts-expect-error
     ...(DEV
       ? [
           new ShellOnBuildEndPlugin({
@@ -140,6 +142,7 @@ const config = {
           }),
         ]
       : []),
+    // @ts-expect-error
     ...(DEV ? [new ReactRefreshWebpackPlugin()] : []),
   ],
 
@@ -147,7 +150,6 @@ const config = {
   // Switch to cheap-eval-source-map if build times are too long
   devtool: PROD ? false : "inline-source-map",
 
-  // @ts-expect-error webpack-dev-server checks this
   // but is not defined in webpack.Configuration
   devServer: {
     allowedHosts: ["localhost"],

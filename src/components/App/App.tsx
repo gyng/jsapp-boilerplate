@@ -11,15 +11,15 @@ import { AppConfigContext } from "@src/index";
 
 // Let webpack instead of ts handle these imports
 const hello = require("./hello.jpg").default;
-const styles = require("./app.pcss");
+import styles from "./app.pcss";
 
 // Include global CSS and variables once
-require("@src/styles/variables.pcss");
-require("@src/styles/typography.pcss");
-require("@src/styles/root.pcss");
+import "@src/styles/variables.pcss";
+import "@src/styles/typography.pcss";
+import "@src/styles/root.pcss";
 
 // Legacy CSS is supported
-require("./legacy.css");
+import "./legacy.css";
 
 // This is a nice way to define your custom presentational components
 // that just pass down props.
