@@ -4,28 +4,28 @@ A personal JavaScript boilerplate for frontend applications for near-production 
 
 This boilerplate contains:
 
-| **Presentation, state**                                                     |                              |
-|-----------------------------------------------------------------------------|------------------------------|
-| [react](https://facebook.github.io/react/docs/hello-world.html)             | ui framework                 |
-| [redux, redux-toolkit](http://redux.js.org/)                                | state management             |
-| [react-redux](http://redux.js.org/docs/basics/UsageWithReact.html)          | react-redux integration      |
-| [react-router](https://github.com/ReactTraining/react-router)               | routing                      |
-| [postcss](https://github.com/postcss/postcss)                               | css preprocessing, styling   |
-| [plain css](https://developer.mozilla.org/en-US/docs/Web/CSS)               | legacy css escape hatch      |
-| **Testing, linting**                                                        |                              |
-| [jest](https://jestjs.io/)                                                  | test framework               |
-| [enzyme](http://airbnb.io/enzyme/index.html)                                | react test library           |
-| [typescript](https://www.typescriptlang.org/docs/home.html)                 | type checking                |
-| [eslint](http://eslint.org/docs/rules/)                                     | linting                      |
-| [prettier](https://github.com/prettier/prettier/)                           | formatting                   |
-| [stylelint](https://stylelint.io/user-guide/)                               | legacy css linting           |
-| **Building, CI, deploying**                                                 |                              |
-| [configuration](config/configValues.js)                                     | run-time configuration       |
-| [webpack](https://webpack.js.org/concepts/)                                 | javascript bundler           |
-| [docker-compose](https://docs.docker.com/compose/compose-file/)             | multi-container              |
-| [docker](https://docs.docker.com/engine/reference/builder/)                 | ci, production server        |
-| [github actions](https://github.com/features/actions)                       | ci, cd                       |
-| [github pages](https://pages.github.com/)                                   | deployment, online hosting   |
+| **Presentation, state**                                            |                            |
+| ------------------------------------------------------------------ | -------------------------- |
+| [react](https://facebook.github.io/react/docs/hello-world.html)    | ui framework               |
+| [redux, redux-toolkit](http://redux.js.org/)                       | state management           |
+| [react-redux](http://redux.js.org/docs/basics/UsageWithReact.html) | react-redux integration    |
+| [react-router](https://github.com/ReactTraining/react-router)      | routing                    |
+| [postcss](https://github.com/postcss/postcss)                      | css preprocessing, styling |
+| [plain css](https://developer.mozilla.org/en-US/docs/Web/CSS)      | legacy css escape hatch    |
+| **Testing, linting**                                               |                            |
+| [jest](https://jestjs.io/)                                         | test framework             |
+| [React Testing Library](https://testing-library.com/)              | react test library         |
+| [typescript](https://www.typescriptlang.org/docs/home.html)        | type checking              |
+| [eslint](http://eslint.org/docs/rules/)                            | linting                    |
+| [prettier](https://github.com/prettier/prettier/)                  | formatting                 |
+| [stylelint](https://stylelint.io/user-guide/)                      | legacy css linting         |
+| **Building, CI, deploying**                                        |                            |
+| [configuration](config/configValues.js)                            | run-time configuration     |
+| [webpack](https://webpack.js.org/concepts/)                        | javascript bundler         |
+| [docker-compose](https://docs.docker.com/compose/compose-file/)    | multi-container            |
+| [docker](https://docs.docker.com/engine/reference/builder/)        | ci, production server      |
+| [github actions](https://github.com/features/actions)              | ci, cd                     |
+| [github pages](https://pages.github.com/)                          | deployment, online hosting |
 
 [Ditherer](https://github.com/gyng/ditherer) is a project built using an older version of this boilerplate.
 
@@ -82,8 +82,8 @@ I have not found a nice solution to this problem. Creating something like create
 
 There are two configuration files.
 
-* Buildtime configuration (used by webpack)
-* Runtime configuration (used by the app)
+- Buildtime configuration (used by webpack)
+- Runtime configuration (used by the app)
 
 #### Buildtime
 
@@ -91,8 +91,8 @@ The buildtime configuration is type-checked. The schema is defined in `config/in
 
 When building, the config files can be controlled using environment variables. For example, `yarn config:generate:dev` in `package.json` uses the following
 
-* `BUILD_CONFIG_FILE=./config/configValues.js` (default)
-* `CONFIG_FILE=./configValues.js` (default)
+- `BUILD_CONFIG_FILE=./config/configValues.js` (default)
+- `CONFIG_FILE=./configValues.js` (default)
 
 which `config/generateJson.js` uses to write to `dist/config/config.json`.
 

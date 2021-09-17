@@ -1,8 +1,4 @@
 import "@babel/polyfill";
-import * as Enzyme from "enzyme";
-import ReactSixteenAdapter from "enzyme-adapter-react-16";
+import "@testing-library/jest-dom";
 
-Enzyme.configure({ adapter: new ReactSixteenAdapter() });
-
-// @ts-expect-error global has fetch in browser env
-global.fetch = require("jest-fetch-mock");
+require("jest-fetch-mock").enableMocks();

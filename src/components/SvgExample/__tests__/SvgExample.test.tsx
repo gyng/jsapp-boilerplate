@@ -1,10 +1,10 @@
-import { shallow } from "enzyme";
+import { render } from "@testing-library/react";
 import * as React from "react";
 import { SvgExample } from "../SvgExample";
 
 describe("SVG loading", () => {
   it("is mocked in tests", () => {
-    const wrapper = shallow(<SvgExample />);
-    expect(wrapper.find("svg")).toHaveLength(2);
+    const wrapper = render(<SvgExample />);
+    expect(wrapper.container.querySelectorAll("svg")).toHaveLength(2);
   });
 });

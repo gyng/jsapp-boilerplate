@@ -15,9 +15,13 @@ const rootReducer = combineReducers({
 
 export type RootState = ReturnType<typeof rootReducer>;
 
-export const store = configureStore({
-  reducer: rootReducer,
-  // We don't have any custom middleware, so this is commented out
-  // middleware: [...getDefaultMiddleware<RootState>()] as const,
-});
+/** For testing, gets a initial store */
+export const makeStore = () =>
+  configureStore({
+    reducer: rootReducer,
+    // We don't have any custom middleware, so this is commented out
+    // middleware: [...getDefaultMiddleware<RootState>()] as const,
+  });
+
+export const store = makeStore();
 export type RootDispatch = typeof store.dispatch;

@@ -19,4 +19,5 @@ module.exports = {
     "^.+\\.(css|less|sass|scss|pcss|png|jpg|ttf|woff|woff2)$":
       "jest-transform-stub",
   },
+  timers: "fake",
 };

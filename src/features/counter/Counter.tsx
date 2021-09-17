@@ -25,7 +25,12 @@ export const Counter: React.FC<CounterProps> = (props) => {
         />
       </Helmet>
 
-      <div className={classNames(styles.value, "value")}>{props.value}</div>
+      <div
+        className={classNames(styles.value, "value")}
+        data-testid="counter-value"
+      >
+        {props.value}
+      </div>
 
       <div>
         <button

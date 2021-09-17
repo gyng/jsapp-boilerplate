@@ -1,33 +1,36 @@
-import * as Enzyme from "enzyme";
+import { render, screen } from "@testing-library/react";
 import * as React from "react";
 import { Counter } from "../Counter";
 
 describe("Counter", () => {
-  let render: Enzyme.ShallowWrapper;
-
-  beforeEach(() => {
-    render = Enzyme.shallow(
+  it("renders the value", () => {
+    // Find by data-testid
+    render(
       <Counter
-        value={0}
+        onDecrementClick={jest.fn()}
         onIncrementClick={jest.fn()}
         onIncrementClickAsync={jest.fn()}
-        onDecrementClick={jest.fn()}
+        onIncrementClickAsyncAwait={jest.fn()}
+        onIncrementClickAsyncPromise={jest.fn()}
+        value={0}
       />
     );
-  });
-
-  it("renders the value", () => {
-    const valueEl = render.find("div .value");
-    expect(valueEl.text()).toEqual("0");
+    expect(screen.getByTestId("counter-value").textContent).toBe("0");
   });
 
   it("renders the increment buttons", () => {
-    const incrementEl = render.find("button.increment");
+    // Find by CSS
+    const wrapper = render(
+      <Counter
+        onDecrementClick={jest.fn()}
+        onIncrementClick={jest.fn()}
+        onIncrementClickAsync={jest.fn()}
+        onIncrementClickAsyncAwait={jest.fn()}
+        onIncrementClickAsyncPromise={jest.fn()}
+        value={0}
+      />
+    );
+    const incrementEl = wrapper.container.querySelectorAll("button.increment");
     expect(incrementEl).toHaveLength(4);
-  });
-
-  it("renders the decrement button", () => {
-    const decrementEl = render.find("button.decrement");
-    expect(decrementEl).toHaveLength(1);
   });
 });

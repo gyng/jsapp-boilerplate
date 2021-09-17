@@ -24,9 +24,6 @@ const mapDispatchToProps = (dispatch: RootDispatch) => ({
     dispatch(counterDuck.actions.fetchCode(url)).then((res) => {
       if (counterDuck.actions.fetchCode.fulfilled.match(res)) {
         dispatch(counterDuck.actions.increment(res.payload));
-      } else {
-        // eslint-disable-next-line no-alert
-        window.alert(`network error ${res.error.message}`);
       }
     });
   },
@@ -38,11 +35,11 @@ const mapDispatchToProps = (dispatch: RootDispatch) => ({
     if (counterDuck.actions.fetchCode.fulfilled.match(res)) {
       dispatch(counterDuck.actions.increment(res.payload));
     } else if (res.payload) {
-      // eslint-disable-next-line no-alert
-      window.alert(`application error${JSON.stringify(res)}`);
+      // eslint-disable-next-line no-console
+      console.log(`application error${JSON.stringify(res)}`);
     } else {
-      // eslint-disable-next-line no-alert
-      window.alert(`network error ${res.error.message}`);
+      // eslint-disable-next-line no-console
+      console.log(`network error ${res.error.message}`);
     }
   },
 });
