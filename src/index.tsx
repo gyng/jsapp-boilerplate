@@ -1,4 +1,5 @@
-import "@babel/polyfill";
+// eslint-disable-next-line import/no-extraneous-dependencies
+import "regenerator-runtime/runtime";
 
 import * as React from "react";
 import * as ReactDOM from "react-dom";
