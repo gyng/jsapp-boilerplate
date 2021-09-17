@@ -125,6 +125,7 @@ const config = {
     }),
     // Generate .gz for production builds
     // Consider adding brotli-webpack-plugin if your server supports .br
+    // @ts-expect-error
     ...(PROD
       ? [
           new CompressionPlugin({
@@ -132,30 +133,43 @@ const config = {
           }),
         ]
       : []),
+    // @ts-expect-error
     ...(DEV
       ? [
           new ShellOnBuildEndPlugin({
             command: "yarn config:generate:dev",
             once: true,
           }),
+          new ReactRefreshWebpackPlugin(),
         ]
       : []),
-    ...(DEV ? [new ReactRefreshWebpackPlugin()] : []),
   ],
 
   // Using inline-source-map for detailed line numbers
   // Switch to cheap-eval-source-map if build times are too long
   devtool: PROD ? false : "inline-source-map",
 
-  // @ts-expect-error webpack-dev-server checks this
   // but is not defined in webpack.Configuration
   devServer: {
     allowedHosts: ["localhost"],
-    clientLogLevel: "warning",
+    client: {
+      logging: "info",
+      overlay: false,
+      progress: true,
+    },
+    devMiddleware: {
+      publicPath: buildConfig.url_publicPath,
+      stats: "minimal",
+    },
     historyApiFallback: true,
     host: "localhost",
-    publicPath: buildConfig.url_publicPath,
-    stats: "minimal",
+    static: [
+      {
+        directory: path.resolve(__dirname, "config"),
+        publicPath: "/",
+        serveIndex: true,
+      },
+    ],
   },
 
   externals: {

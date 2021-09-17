@@ -43,12 +43,10 @@ module.exports = function ShellOnBuildEndPlugin(options) {
       if (onceEnabledAndNotRun || onceDisabled) {
         killUnwantedExistingChild();
 
-        this.child = spawn(
-          options.command || "echo no command passed to ShellOnBuildEndPlugin",
-          {
-            shell: true,
-          }
-        );
+        this.child = spawn(options.command, {
+          stdio: "inherit",
+          shell: true,
+        });
 
         // child process has ended, we force kill it to mark it as killed
         this.child.on("close", () => {

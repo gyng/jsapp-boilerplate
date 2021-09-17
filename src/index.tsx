@@ -26,6 +26,12 @@ const configureRouter = (config: Configuration) => {
     hash: HashRouter,
   };
 
+  if (!routers[config.url_historyType]) {
+    throw new Error(
+      `Unable to configure router using config.url_historyType ${config.url_historyType}`
+    );
+  }
+
   return {
     basename: config.url_basePath,
     Component: routers[config.url_historyType],
