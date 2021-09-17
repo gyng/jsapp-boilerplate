@@ -12,6 +12,7 @@ module.exports = {
     "\\.svg": "<rootDir>/test/helpers/svgrMock.js",
   },
   setupFilesAfterEnv: ["<rootDir>/test/helpers/index.ts"],
+  testEnvironment: "jsdom",
   testMatch: ["**/src/**/*.test.(ts|tsx|js)", "**/src/test/*.test.(ts|tsx|js)"],
   testPathIgnorePatterns: ["/node_modules/", "/dist/"],
   transform: {
