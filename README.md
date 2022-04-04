@@ -1,5 +1,19 @@
 # jsapp-boilerplate
 
+## This repository has been archived
+
+Now that there are good and modern alternatives to manually setting up Webpack + dozens of loaders (in 2022), there is little incentive to keeping this maintained.
+
+Consider using
+
+- [esbuild](https://esbuild.github.io/) instead of Webpack
+- [vitejs](https://vitejs.dev/) instead of this
+- [remix](https://remix.run/)
+
+These frameworks don't come included nice things such as testing, options management or Redux set up, but those should be much more trivial than creating a custom webpack config from scratch. I might come up with a new version of jsapp-boilerplate that adds those that is built off one of those frameworks.
+
+---
+
 A personal JavaScript boilerplate for frontend applications for near-production use. Production deployment will require additional work depending on where and how you plan to deploy your application as this boilerplate only provides deployment to GitHub pages.
 
 This boilerplate contains:
